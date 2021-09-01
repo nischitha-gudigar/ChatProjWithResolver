@@ -7,3 +7,8 @@ export interface ChatData {
   read: boolean;
   date: string;
 }
+
+export interface ChatResolver {
+  contacts: ChatData[];
+  error?: any;
+}

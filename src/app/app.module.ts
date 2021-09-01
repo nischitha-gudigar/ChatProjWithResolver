@@ -12,9 +12,14 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { chatLoadReducer } from './store/chat-load.reducer';
 import { chatSaveReducer } from './store/chat-store.reducer';
+import { ChatListResolver } from './chat-list-resolver.service';
 
 const routes: Routes = [
-  { path: 'contacts', component: ChatListComponent },
+  {
+    path: 'contacts',
+    component: ChatListComponent,
+    resolve: { resolvedData: ChatListResolver }
+  },
   { path: 'chat/:id', component: ChatDisplayComponent },
   { path: '', redirectTo: 'contacts', pathMatch: 'full' }
 ];
