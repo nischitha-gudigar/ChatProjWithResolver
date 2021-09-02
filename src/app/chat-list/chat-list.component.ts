@@ -15,7 +15,7 @@ import { addChatOnLoad } from '../store/chat-load.action';
 export class ChatListComponent implements OnInit {
   public contactsForDisplay$: Observable<ChatData[]>;
   public messageDisplay$: Observable<chatActionState[]>;
-  private errorMessage: string;
+  public errorMessage: string;
   constructor(
     private chatService: ChatList,
     private store: Store<MyAppState>,
