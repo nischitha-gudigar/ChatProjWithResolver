@@ -22,8 +22,8 @@ const routes: Routes = [
     resolve: { resolvedData: ChatListResolver }
   },
   { path: 'chat/:id', component: ChatDisplayComponent },
-  { path: '', redirectTo: 'contacts', pathMatch: 'full' },
-  { path: 'Error', component: PageNotFoundComponent }
+  { path: 'Error', component: PageNotFoundComponent },
+  { path: '', redirectTo: 'contacts', pathMatch: 'full' }
 ];
 
 @NgModule({

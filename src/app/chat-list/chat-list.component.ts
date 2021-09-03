@@ -29,11 +29,8 @@ export class ChatListComponent implements OnInit {
     // });
     const resolvedData: ChatResolver = this.route.snapshot.data['resolvedData'];
     this.errorMessage = resolvedData.error;
-    if (this.errorMessage) {
-      this.router.navigate(['/Error']);
-    }
     this.store.dispatch(addChatOnLoad(resolvedData));
-
+    console.log(resolvedData);
     /* Get contacts and messages from store */
     this.contactsForDisplay$ = this.store.select('contacts');
     this.messageDisplay$ = this.store.select('messages');
