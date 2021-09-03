@@ -7,7 +7,7 @@ import { ChatData } from './chat-data';
 @Injectable({ providedIn: 'root' })
 export class ChatList {
   private chatUrl =
-    'https://raw.githubusercontent.com/NablaT/test-api/master/assets/messages.json.txt';
+    'https://raw.githubusercontent.com/NablaT/test-api/master/assets/messagess.json.txt';
 
   constructor(private http: HttpClient) {}
 
