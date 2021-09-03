@@ -13,6 +13,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { chatLoadReducer } from './store/chat-load.reducer';
 import { chatSaveReducer } from './store/chat-store.reducer';
 import { ChatListResolver } from './chat-list-resolver.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     resolve: { resolvedData: ChatListResolver }
   },
   { path: 'chat/:id', component: ChatDisplayComponent },
-  { path: '', redirectTo: 'contacts', pathMatch: 'full' }
+  { path: '', redirectTo: 'contacts', pathMatch: 'full' },
+  { path: 'Error', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -38,7 +40,12 @@ const routes: Routes = [
       maxAge: 25
     })
   ],
-  declarations: [AppComponent, ChatListComponent, ChatDisplayComponent],
+  declarations: [
+    AppComponent,
+    ChatListComponent,
+    ChatDisplayComponent,
+    PageNotFoundComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

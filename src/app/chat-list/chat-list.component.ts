@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { chatActionState, MyAppState } from '../app.state';
@@ -19,7 +19,8 @@ export class ChatListComponent implements OnInit {
   constructor(
     private chatService: ChatList,
     private store: Store<MyAppState>,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -28,9 +29,10 @@ export class ChatListComponent implements OnInit {
     // });
     const resolvedData: ChatResolver = this.route.snapshot.data['resolvedData'];
     this.errorMessage = resolvedData.error;
-    console.log(resolvedData);
-    console.log('in chat list');
-    console.log(resolvedData);
+    if (this.errorMessage) {
+      this.router.navigate(['/Error']);
+    }
+    this.store.dispatch(addChatOnLoad(resolvedData));
 
     /* Get contacts and messages from store */
     this.contactsForDisplay$ = this.store.select('contacts');
